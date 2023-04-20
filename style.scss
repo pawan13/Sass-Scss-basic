@@ -1,0 +1,59 @@
+@use "base";
+
+// :root{
+//     --mainColor:red;
+//     --secondaryColor:black;
+// }
+
+// mixin
+@mixin transform($deg, $Clr) {
+  transform: rotate($deg);
+  background: ($Clr);
+}
+$mainColor: red;
+$secondaryColor: black;
+.wrapper {
+  // background: var(--mainColor);
+  //   background: $mainColor;
+  background: base.$frameClr;
+}
+// .menu {
+//   // background: var(--secondaryColor);
+//   background: $secondaryColor;
+//   color: aliceblue;
+// }
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    @include transform(30deg, red);
+  }
+
+  .menu {
+    background: $secondaryColor;
+    color: white;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    li {
+      color: white;
+
+      &:hover {
+        transform: scale(1.5);
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+    }
+  }
+}
